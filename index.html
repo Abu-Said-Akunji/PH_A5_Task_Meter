@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Board</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="style.css">
+    <style type="text/tailwindcss">
+        @theme {
+            --color-light-blue: #F4F7FF;
+            --color-primary: #3D5AFE;
+            --color-dark: #00303C;
+        }
+    </style>
+</head>
+<body class="font-[Poppins] bg-light-blue pt-6 pb-16 px-4">
+    <header class="bg-white container mx-auto rounded-2xl p-6">
+        <nav class="flex flex-col sm:flex-row justify-between items-center gap-6 sm:gap-0">
+            <div class="flex items-center gap-2.5">
+                <img src="assets/activity.png" alt="Logo" class="h-10">
+                <h3 class="text-2xl sm:text-4xl font-light flex gap-1">
+                    Dev<span class="font-bold">Board</span>
+                </h3>
+            </div>
+            <ul class="flex items-center gap-9">
+                <li class="flex items-center justify-center gap-4 bg-light-blue p-4 rounded-full w-[123px] h-16">
+                    <img src="assets/checkbox.png" alt="Checkbox" class="h-8">
+                    <p class="text-[32px] font-bold">23</p>
+                </li>
+                <li>
+                    <button class="bg-light-blue w-16 h-16 p-3 rounded-full cursor-pointer">
+                        <img src="assets/theme-btn.png" alt="Theme Button" class="h-8">
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+</body>
+</html>
