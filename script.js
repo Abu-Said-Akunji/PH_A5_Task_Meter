@@ -65,7 +65,7 @@ let pendingTasks = 6;
 let finishedTasks = 23;
 const finishedTasksEl = document.getElementById("task-counter");
 const pendingTasksEl = document.getElementById("task-count");
-const taskButtons = document.querySelectorAll(".task-completed");
+const taskButtons = document.querySelectorAll(".task-status");
 const logContainer = document.getElementById("activity-log-message-container");
 
 const getFormattedTime = () => {
@@ -90,7 +90,7 @@ if (taskButtons) {
                 let taskTitle = this.closest(".task-card").querySelector(".task-title").textContent;
                 const logEntry = document.createElement("p");
                 logEntry.classList.add("bg-bg-light", "p-2.5", "rounded-lg", "mb-7");
-                logEntry.textContent = `Task '${taskTitle}' was marked complete at ${getFormattedTime()}`;
+                logEntry.textContent = `You have Completed the Task '${taskTitle}'  at ${getFormattedTime()}`;
                 logContainer.appendChild(logEntry);
 
                 this.disabled = true;
@@ -113,7 +113,7 @@ if (clearLogButton) {
 
 const updateCurrentDate = () => {
     const now = new Date();
-    document.querySelector("#day").innerText = now.toLocaleDateString("en-US", { weekday: "short" });
-    document.querySelector("#fullDate").innerText = now.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+    document.querySelector("#day-name").innerText = now.toLocaleDateString("en-US", { weekday: "short" });
+    document.querySelector("#current-date").innerText = now.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
 };
 updateCurrentDate();
