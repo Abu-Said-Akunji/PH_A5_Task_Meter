@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @theme {
+              --color-bg-light: #F4F7FF;
+              --color-main: #3D5AFE;
+              --color-dark: #00303C;
+            }
+            @layer base {
+                :root {
+                    --font-primary: "Poppins", sans-serif;
+                }
+                .font-primary {
+                    font-family: var(--font-primary);
+                }
+            }
+        </style>
+</head>
+
+<body class="px-4 pt-6 pb-16 font-primary bg-bg-light">
+    <header class="container mx-auto p-6 bg-white rounded-2xl">
+        <nav class="flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-0">
+            <div class="flex items-center gap-2.5">
+                <div>
+                    <img src="assets/logo.png" alt="Logo">
+                </div>
+                <h3 class="flex text-2xl sm:text-4xl font-light gap-0">
+                    Dev
+                    <span class="font-bold">Hub</span>
+                </h3>
+            </div>
+            <ul class="flex items-center gap-9">
+                <li class="rounded-full">
+                    <button class="bg-main px-6 py-2.5 text-white rounded-lg font-medium cursor-pointer"
+                        id="back-to-home">Return</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container pt-5 mx-auto rounded-2xl xl:flex-row">
+        <h1 class="pb-5 text-xl font-bold text-center">Technical Blogs</h1>
+        <section class="flex flex-col gap-5">
+            <div class="py-4 bg-white rounded-2xl">
+                <h2 class="pb-2 px-4 border-b border-dashed border-[rgba(55,82,253,0.2)] font-bold">How to Select
+                    Elements in the DOM?</h2>
+                <p class="px-4 pt-2 text-gray-500">You can select elements in JavaScript using different methods, such
+                    as:</p>
+                <ul class="px-4 pt-2 pb-1 text-gray-500">
+                    <li>document.getElementById()</li>
+                    <li>document.getElementsByClassName()</li>
+                    <li>document.getElementsByTagName()</li>
+                    <li>document.querySelector()</li>
+                    <li>document.querySelectorAll()</li>
+                </ul>
+            </div>
+            <div class="py-4 bg-white rounded-2xl">
+                <h2 class="pb-2 px-4 border-b border-dashed border-[rgba(55,82,253,0.2)] font-bold">Understanding
+                    innerHTML, innerText, and textContent</h2>
+                <ul class="px-4 pb-1 text-gray-500">
+                    <li><strong>innerHTML:</strong> Retrieves and sets HTML content, including tags.</li>
+                    <li><strong>innerText:</strong> Extracts only visible text, ignoring hidden elements.</li>
+                    <li><strong>textContent:</strong> Retrieves all text, including hidden content, without parsing
+                        HTML.</li>
+                </ul>
+            </div>
+            <div class="py-4 bg-white rounded-2xl">
+                <h2 class="pb-2 px-4 border-b border-dashed border-[rgba(55,82,253,0.2)] font-bold">What is Event
+                    Delegation?</h2>
+                <p class="px-4 pt-2 pb-1 text-gray-500">Instead of attaching event listeners to multiple elements, you
+                    can add a listener to a parent element and use event.target to identify which child was interacted
+                    with.</p>
+            </div>
+            <div class="py-4 bg-white rounded-2xl">
+                <h2 class="pb-2 px-4 border-b border-dashed border-[rgba(55,82,253,0.2)] font-bold">How Does Event
+                    Bubbling Work?</h2>
+                <p class="px-4 pt-2 pb-1 text-gray-500">Event bubbling is when an event starts from the target element
+                    and propagates upwards through its ancestors, triggering their event listeners.</p>
+            </div>
+            <div class="py-4 bg-white rounded-2xl">
+                <h2 class="pb-2 px-4 border-b border-dashed border-[rgba(55,82,253,0.2)] font-bold">Creating, Adding,
+                    and Removing Elements in JavaScript</h2>
+                <ul class="px-4 pb-1 text-gray-500">
+                    <li><strong>Create:</strong> Use document.createElement("p").</li>
+                    <li><strong>Add:</strong> Use appendChild(), prepend(), insertBefore(), or innerHTML.</li>
+                    <li><strong>Remove:</strong> Use removeChild() or remove().</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
