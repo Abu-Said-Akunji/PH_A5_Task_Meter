@@ -1,44 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dev Board</title>
+    <title>Developer Dashboard</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="style.css">
     <style type="text/tailwindcss">
         @theme {
-            --color-light-blue: #F4F7FF;
-            --color-primary: #3D5AFE;
-            --color-dark: #00303C;
-        }
-    </style>
+                --color-bg-light: #F4F7FF;
+                --color-main: #3D5AFE;
+                --color-dark: #00303C;
+                }
+                @layer base {
+                    :root {
+                        --font-main: "Poppins", sans-serif;
+                    }
+                    .font-main {
+                        font-family: var(--font-main);
+                    }
+                }
+            </style>
 </head>
-<body class="font-[Poppins] bg-light-blue pt-6 pb-16 px-4">
-    <header class="bg-white container mx-auto rounded-2xl p-6">
-        <nav class="flex flex-col sm:flex-row justify-between items-center gap-6 sm:gap-0">
+
+<body class="px-4 pt-6 pb-16 font-main bg-bg-light">
+    <header class="container mx-auto p-6 bg-white rounded-2xl">
+        <nav class="flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-0">
             <div class="flex items-center gap-2.5">
-                <img src="assets/activity.png" alt="Logo" class="h-10">
-                <h3 class="text-2xl sm:text-4xl font-light flex gap-1">
-                    Dev<span class="font-bold">Board</span>
+                <div>
+                    <img src="assets/logo.png" alt="Logo">
+                </div>
+                <h3 class="flex text-2xl sm:text-4xl font-light gap-0">
+                    Developer
+                    <span class="font-bold">Dashboard</span>
                 </h3>
             </div>
             <ul class="flex items-center gap-9">
-                <li class="flex items-center justify-center gap-4 bg-light-blue p-4 rounded-full w-[123px] h-16">
-                    <img src="assets/checkbox.png" alt="Checkbox" class="h-8">
-                    <p class="text-[32px] font-bold">23</p>
+                <li class="flex gap-4 bg-bg-light p-4 rounded-full w-[123px] h-16 items-center justify-center">
+                    <div>
+                        <img src="assets/checkbox.png" alt="Tasks Completed">
+                    </div>
+                    <p class="text-[32px] font-bold" id="task-counter">23</p>
                 </li>
                 <li>
-                    <button class="bg-light-blue w-16 h-16 p-3 rounded-full cursor-pointer">
-                        <img src="assets/theme-btn.png" alt="Theme Button" class="h-8">
+                    <button class="w-16 h-16 p-3 rounded-full cursor-pointer bg-bg-light" id="theme-toggle">
+                        <img src="assets/theme-btn.png" alt="Theme Toggle">
                     </button>
                 </li>
             </ul>
         </nav>
     </header>
-    
+    <main class="container mx-auto flex flex-col xl:flex-row justify-between gap-6 pt-5 rounded-2xl">
+        <div class="bg-white xl:w-3/4 rounded-2xl">
+            <div
+                class="flex flex-col lg:flex-row justify-between gap-6 px-6 pt-6 pb-8 border-b border-dashed border-[rgba(55,82,253,0.2)]">
+                <div class="flex items-center gap-2 sm:gap-5 p-4 sm:p-5 lg:w-2/6 bg-bg-light rounded-xl">
+                    <div class="w-16 h-16 p-5 bg-white rounded-full">
+                        <img src="assets/checkbox.png" alt="Task Icon">
+                    </div>
+                    <div>
+                        <p class="font-medium">Tasks Assigned</p>
+                        <h4 class="font-bold sm:text-3xl" id="task-count">6</h4>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2 sm:gap-6 px-4 sm:px-10 py-5 lg:w-4/6 rounded-xl bg-gradient-to-r from-[#3752FD] via-[#6C7FFA] to-[#9BA8F8] cursor-pointer"
+                    id="explore-today">
+                    <div>
+                        <img src="assets/board.png" alt="Board">
+                    </div>
+                    <div>
+                        <p class="text-white sm:text-2xl">
+                            Explore Something
+                            <br>
+                            New Today!
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2 sm:gap-5 p-3 sm:p-5 lg:w-2/6 bg-bg-light rounded-xl">
+                    <div class="w-16 h-16 p-5 bg-white rounded-full">
+                        <img src="assets/calender.png" alt="Calendar">
+                    </div>
+                    <div>
+                        <p class="sm:text-[22px]">
+                            <span class="block" id="day-name">Wed,</span>
+                            <span class="font-bold" id="current-date">Jul 28 2025</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-9 px-6 py-8">
+                <div class="p-6 bg-bg-light rounded-2xl task-card">
+                    <div class="pb-4 border-b border-dashed border-[rgba(55,82,253,0.2)]">
+                        <button class="px-4 py-2 mb-4 bg-white rounded-lg text-dark">ShopEase</button>
+                        <h3 class="mb-4 text-xl sm:text-2xl font-medium text-dark task-title">Resolve Mobile Button
+                            Issue</h3>
+                        <p class="p-4 bg-white rounded-lg text-gray-500">Improve mobile responsiveness, review styles,
+                            and fix button overlap...</p>
+                    </div>
+                    <div class="flex flex-col md:flex-row lg:items-center justify-between gap-2 pt-4">
+                        <div>
+                            <p class="text-sm text-dark">Due Date</p>
+                            <h4 class="font-medium text-dark">21 March 2025</h4>
+                        </div>
+                        <div>
+                            <button
+                                class="bg-main px-6 py-2.5 text-white rounded-lg font-medium cursor-pointer task-status disabled:bg-gray-300 disabled:text-gray-400 disabled:cursor-default">Completed</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 bg-bg-light rounded-2xl task-card">
+                    <div class="pb-4 border-b border-dashed border-[rgba(55,82,253,0.2)]">
+                        <button class="px-4 py-2 mb-4 bg-white rounded-lg text-dark">ShopEase</button>
+                        <h3 class="mb-4 text-xl sm:text-2xl font-medium text-dark task-title">Resolve Mobile Button
+                            Issue</h3>
+                        <p class="p-4 bg-white rounded-lg text-gray-500">Improve mobile responsiveness, review styles,
+                            and fix button overlap...</p>
+                    </div>
+                    <div class="flex flex-col md:flex-row lg:items-center justify-between gap-2 pt-4">
+                        <div>
+                            <p class="text-sm text-dark">Due Date</p>
+                            <h4 class="font-medium text-dark">21 March 2025</h4>
+                        </div>
+                        <div>
+                            <button
+                                class="bg-main px-6 py-2.5 text-white rounded-lg font-medium cursor-pointer task-status disabled:bg-gray-300 disabled:text-gray-400 disabled:cursor-default">Completed</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 bg-bg-light rounded-2xl task-card">
+                    <div class="pb-4 border-b border-dashed border-[rgba(55,82,253,0.2)]">
+                        <button class="px-4 py-2 mb-4 bg-white rounded-lg text-dark">ShopEase</button>
+                        <h3 class="mb-4 text-xl sm:text-2xl font-medium text-dark task-title">Resolve Mobile Button
+                            Issue</h3>
+                        <p class="p-4 bg-white rounded-lg text-gray-500">Improve mobile responsiveness, review styles,
+                            and fix button overlap...</p>
+                    </div>
+                    <div class="flex flex-col md:flex-row lg:items-center justify-between gap-2 pt-4">
+                        <div>
+                            <p class="text-sm text-dark">Due Date</p>
+                            <h4 class="font-medium text-dark">21 March 2025</h4>
+                        </div>
+                        <div>
+                            <button
+                                class="bg-main px-6 py-2.5 text-white rounded-lg font-medium cursor-pointer task-status disabled:bg-gray-300 disabled:text-gray-400 disabled:cursor-default">Completed</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 bg-bg-light rounded-2xl task-card">
+                    <div class="pb-4 border-b border-dashed border-[rgba(55,82,253,0.2)]">
+                        <button class="px-4 py-2 mb-4 bg-white rounded-lg text-dark">ShopEase</button>
+                        <h3 class="mb-4 text-xl sm:text-2xl font-medium text-dark task-title">Resolve Mobile Button
+                            Issue</h3>
+                        <p class="p-4 bg-white rounded-lg text-gray-500">Improve mobile responsiveness, review styles,
+                            and fix button overlap...</p>
+                    </div>
+                    <div class="flex flex-col md:flex-row lg:items-center justify-between gap-2 pt-4">
+                        <div>
+                            <p class="text-sm text-dark">Due Date</p>
+                            <h4 class="font-medium text-dark">21 March 2025</h4>
+                        </div>
+                        <div>
+                            <button
+                                class="bg-main px-6 py-2.5 text-white rounded-lg font-medium cursor-pointer task-status disabled:bg-gray-300 disabled:text-gray-400 disabled:cursor-default">Completed</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 bg-bg-light rounded-2xl task-card">
+                    <div class="pb-4 border-b border-dashed border-[rgba(55,82,253,0.2)]">
+                        <button class="px-4 py-2 mb-4 bg-white rounded-lg text-dark">ShopEase</button>
+                        <h3 class="mb-4 text-xl sm:text-2xl font-medium text-dark task-title">Resolve Mobile Button
+                            Issue</h3>
+                        <p class="p-4 bg-white rounded-lg text-gray-500">Improve mobile responsiveness, review styles,
+                            and fix button overlap...</p>
+                    </div>
+                    <div class="flex flex-col md:flex-row lg:items-center justify-between gap-2 pt-4">
+                        <div>
+                            <p class="text-sm text-dark">Due Date</p>
+                            <h4 class="font-medium text-dark">21 March 2025</h4>
+                        </div>
+                        <div>
+                            <button
+                                class="bg-main px-6 py-2.5 text-white rounded-lg font-medium cursor-pointer task-status disabled:bg-gray-300 disabled:text-gray-400 disabled:cursor-default">Completed</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 bg-bg-light rounded-2xl task-card">
+                    <div class="pb-4 border-b border-dashed border-[rgba(55,82,253,0.2)]">
+                        <button class="px-4 py-2 mb-4 bg-white rounded-lg text-dark">ShopEase</button>
+                        <h3 class="mb-4 text-xl sm:text-2xl font-medium text-dark task-title">Resolve Mobile Button
+                            Issue</h3>
+                        <p class="p-4 bg-white rounded-lg text-gray-500">Improve mobile responsiveness, review styles,
+                            and fix button overlap...</p>
+                    </div>
+                    <div class="flex flex-col md:flex-row lg:items-center justify-between gap-2 pt-4">
+                        <div>
+                            <p class="text-sm text-dark">Due Date</p>
+                            <h4 class="font-medium text-dark">21 March 2025</h4>
+                        </div>
+                        <div>
+                            <button
+                                class="bg-main px-6 py-2.5 text-white rounded-lg font-medium cursor-pointer task-status disabled:bg-gray-300 disabled:text-gray-400 disabled:cursor-default">Completed</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white xl:w-1/4 rounded-2xl">
+            <div class="pt-6 pb-3.5 text-center border-b border-dashed border-[rgba(55,82,253,0.2)]">
+                <div class="flex justify-center gap-4 pb-4">
+                    <div>
+                        <img src="assets/activity.png" alt="Activity Log Icon">
+                    </div>
+                    <p class="text-xl font-medium">Recent Activities</p>
+                </div>
+                <button class="bg-main px-6 py-2.5 text-white rounded-lg font-medium cursor-pointer"
+                    id="clear-task-log-btn">Clear Log</button>
+            </div>
+            <div class="p-6" id="activity-log-message-container"></div>
+        </div>
+    </main>
+    <script src="script.js"></script>
 </body>
+
 </html>
